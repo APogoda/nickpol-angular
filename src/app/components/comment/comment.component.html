@@ -1,0 +1,43 @@
+<div class="card text-white border-secondary bg-dark  mb-3" *ngIf="comment">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-10 col-md-6 col-lg-4 col-xl-3">
+        <mat-chip-list class="mat-chip-list-stacked text-center">
+          <mat-chip color="primary" selected (click)="goToLink(comment.commentLink)"
+          >Комментарий - {{ comment.system }}</mat-chip
+          >
+          <mat-chip color="warn" (click)="goToLink(comment.workLink)" selected>{{ comment.workName }}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div *ngIf="comment.questionText">
+      <p class="card-text" [innerHTML]="comment.questionText"></p>
+      <div class="card text-white bg-dark border-secondary">
+        <div class="card-body">
+          <p [innerHTML]="comment.text | linkify"></p>
+        </div>
+        <div class="card-footer text-muted ">
+          <footer class="text-right text-white">
+            <cite>{{ comment.authorName }}</cite>
+            <p class="card-text text-right text-white">
+              <span class="text-white">{{ comment.dt }}</span>
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!comment.questionText">
+      <h5><p [innerHTML]="comment.text | linkify"></p></h5>
+    </div>
+  </div>
+  <div class="card-footer text-muted" *ngIf="!comment.questionText">
+    <footer class="text-right text-white">
+      <cite title="Source Title">{{ comment.authorName }}</cite>
+      <p class="card-text text-right text-white">
+        <small class="text-white">{{ comment.dt }}</small>
+      </p>
+    </footer>
+  </div>
+</div>

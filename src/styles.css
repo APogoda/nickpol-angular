@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body { margin: 0; color: darkgrey; overflow-x: hidden; background-color: #252525;}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(50, 50, 50);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
