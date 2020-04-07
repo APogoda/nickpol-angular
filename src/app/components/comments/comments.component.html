@@ -1,0 +1,13 @@
+<mat-form-field appearance="outline" class="full-width">
+  <mat-label>Поиск</mat-label>
+  <input matInput [(ngModel)]="search" (ngModelChange)="onSearchChange()" />
+</mat-form-field>
+
+<div infiniteScroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="100"
+     (scrolled)="onScroll()" >
+  <ng-container *ngFor="let comment of comments">
+    <app-comment [comment]="comment"></app-comment>
+  </ng-container>
+</div>
