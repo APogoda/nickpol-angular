@@ -3,10 +3,23 @@
     <div class="row">
       <div class="col-10 col-md-6 col-lg-4 col-xl-3">
         <mat-chip-list class="mat-chip-list-stacked text-center">
-          <mat-chip color="primary" selected (click)="goToLink(comment.commentLink)"
-          >Комментарий - {{ comment.system }}</mat-chip
+          <a [href]="comment.commentLink"
+             mat-chip
+             target="_blank"
+             selected
+             selectable="false"
           >
-          <mat-chip color="warn" (click)="goToLink(comment.workLink)" selected>{{ comment.workName }}</mat-chip>
+            Комментарий - {{ comment.system }}
+          </a>
+          <a [href]="comment.workLink"
+             mat-chip
+             color="warn"
+             target="_blank"
+             selected
+             selectable="false"
+          >
+            {{comment.workName}}
+          </a>
         </mat-chip-list>
       </div>
     </div>
